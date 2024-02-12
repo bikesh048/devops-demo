@@ -17,6 +17,7 @@ pipeline {
             steps {
                 script {
                     sh 'pwd'
+                    sh 'ls'
                     dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} ..")
                 }
             }
