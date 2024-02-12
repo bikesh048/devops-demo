@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE_NAME = "demo-app"
-        DOCKERFILE_PATH = "./../docker/Dockerfile"
+        DOCKERFILE_PATH = "./docker/Dockerfile"
     }
 
     stages {
@@ -18,7 +18,7 @@ pipeline {
                 script {
                     sh 'pwd'
                     sh 'ls'
-                    dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} ..")
+                    dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} .")
                 }
             }
         }
