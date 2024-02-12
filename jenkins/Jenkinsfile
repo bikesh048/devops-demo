@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'pwd'
+                    sh 'docker --version'
                     sh 'ls'
                                         // Use the 'docker' command to check if Docker is installed
                     def dockerInstalled = sh(script: 'command -v docker', returnStatus: true) == 0
@@ -27,6 +27,7 @@ pipeline {
                         error 'Docker is not installed on this agent. Please install Docker before running this job.'
                     }
                     // dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} .")
+                    sh 'docker build -t demo-app -f ./docker/Dockerfile .'
                 }
             }
         }
