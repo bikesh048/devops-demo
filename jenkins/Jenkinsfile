@@ -18,7 +18,15 @@ pipeline {
                 script {
                     sh 'pwd'
                     sh 'ls'
-                    dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} .")
+                                        // Use the 'docker' command to check if Docker is installed
+                    def dockerInstalled = sh(script: 'command -v docker', returnStatus: true) == 0
+
+                    if (dockerInstalled) {
+                        echo 'Docker is installed on this agent.'
+                    } else {
+                        error 'Docker is not installed on this agent. Please install Docker before running this job.'
+                    }
+                    // dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} .")
                 }
             }
         }
