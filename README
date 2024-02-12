@@ -1,0 +1,68 @@
+# CI/CD Pipeline for Java Spring Boot Application with Jenkins, Docker, and AWS
+
+## Overview
+
+This project demonstrates the setup of a CI/CD pipeline for a Java Spring Boot application using Jenkins, Docker, and AWS services. The application is deployed into Amazon EC2 instances in different environments (dev, stage, and prod), and AWS services such as Secrets Manager and Key Management Service (KMS) are utilized for managing secrets and encryption.
+
+## Project Structure
+
+- `/app`: Source code for the Java Spring Boot application.
+- `/terraform`: Terraform configurations for infrastructure provisioning.
+- `/jenkins`: Jenkins configurations and scripts.
+- `/docker`: Dockerfile for the Spring Boot application.
+
+## Requirements
+
+1. [Docker](https://www.docker.com/)
+2. [Jenkins](https://www.jenkins.io/)
+3. [Terraform](https://www.terraform.io/)
+4. [AWS CLI](https://aws.amazon.com/cli/)
+
+## Setup
+
+1. **Dockerfile for the Application:**
+   - The Dockerfile for the Spring Boot application is available in the `/docker` directory.
+
+2. **Jenkins CI/CD Pipeline:**
+   - Configure Jenkins for the CI/CD pipeline using configurations and scripts in the `/jenkins` directory.
+   - Ensure Jenkins has necessary plugins installed, including Docker and AWS plugins.
+
+3. **AWS Services:**
+   - Set up AWS Secrets Manager to manage secrets securely.
+   - Utilize AWS Key Management Service (KMS) for encryption and decryption tasks.
+
+4. **Linter and Docker Image Scanner:**
+   - **TODO**
+   - Implement linter and Docker image scanner for code quality checks. Details in `/jenkins/Jenkinsfile`.
+
+5. **Infrastructure Deployment:**
+   - Use Terraform to provision infrastructure in different environments (dev, stage, and prod). Configuration in `/terraform`.
+
+6. **AWS CloudWatch Monitoring:**
+   - Implement AWS CloudWatch for infrastructure monitoring. Details in `/terraform`.
+
+## CI/CD Workflow
+
+1. Developer pushes code to the repository.
+2. Jenkins detects the changes and triggers the pipeline.
+3. The pipeline runs linter and Docker image scanner for code quality checks.
+4. The application is deployed to Amazon EC2 instances in dev, stage, or prod based on the branch.
+
+## Secrets Management and Encryption
+
+- Use AWS Secrets Manager to securely manage and retrieve secrets.
+- AWS KMS is utilized for encryption and decryption tasks.
+
+## Cost Optimization
+- **TODO**
+- Infrastructure provisioning and resource allocation can be optimized for cost efficiency. using spot instance or reserved instance 
+
+## Source Code
+
+The source code is available in the GitHub repository: [GitHub Repository Link](https://github.com/yourusername/your-repo)
+
+
+## Contact
+
+For any inquiries or issues, please contact Bikesh Shrestha at [bikeshrestha048@gmail.com]
+

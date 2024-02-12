@@ -1,0 +1,14 @@
+## initialize
+terraform init
+
+## review and apply changes
+terraform plan 
+
+## apply changes 
+terraform apply -auto-approve
+
+## destroy 
+terraform destory 
+
+## 
+terrafor refresh

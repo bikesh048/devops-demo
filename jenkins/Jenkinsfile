@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE_NAME = "demo-app"
+        DOCKERFILE_PATH = "docker/Dockerfile"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    dockerImage = docker.build(env.DOCKER_IMAGE_NAME, "-f ${env.DOCKERFILE_PATH} .")
+                }
+            }
+        }
+
+        // stage('Lint and Scan') {
+        //     steps {
+                
+        //         sh './mvnw checkstyle:check'
+        //     }
+        // }
+
+        // stage('Deploy to Dev') {
+        //     when {
+        //         branch 'dev'
+        //     }
+        //     steps {
+        //         script {
+        //             sh 'deploy-to-dev.sh'
+        //         }
+        //     }
+        // }
+
+        // stage('Deploy to Stage') {
+        //     when {
+        //         branch 'stage'
+        //     }
+        //     steps {
+        //         script {
+        //             sh 'deploy-to-stage.sh'
+        //         }
+        //     }
+        // }
+
+        // stage('Deploy to Prod') {
+        //     when {
+        //         branch 'prod'
+        //     }
+        //     steps {
+        //         script {
+        //             sh 'deploy-to-prod.sh'
+        //         }
+        //     }
+        // }
+    }
+}

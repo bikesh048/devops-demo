@@ -1,0 +1,16 @@
+app/HELP.md
+app/target/
+!app/.mvn/wrapper/maven-wrapper.jar
+!app/**/src/main/**/target/
+!app/**/src/test/**/target/
+
+
+### VS Code ###
+app/.vscode/
+.vscode/
+
+
+# Ignore .terraform directory
+terraform/**/.terraform/*
+
+
